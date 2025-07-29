@@ -1,7 +1,16 @@
 import { useEffect } from "react";
 import "./App.css";
 
-const tg = (window as unknown).Telegram.WebApp;
+const tg = (
+  window as unknown as {
+    Telegram: {
+      WebApp: {
+        ready: () => void;
+        close: () => void;
+      };
+    };
+  }
+).Telegram.WebApp;
 
 function App() {
   useEffect(() => {
