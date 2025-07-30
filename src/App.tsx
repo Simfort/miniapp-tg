@@ -7,6 +7,11 @@ const tg = (
       WebApp: {
         ready: () => void;
         close: () => void;
+        initDataUnsafe: {
+          user: {
+            username: string;
+          };
+        };
       };
     };
   }
@@ -21,7 +26,8 @@ function App() {
   };
   return (
     <div>
-      work <button onClick={onClose}>Close</button>
+      Hello {tg.initDataUnsafe?.user?.username}{" "}
+      <button onClick={onClose}>Close</button>
     </div>
   );
 }
