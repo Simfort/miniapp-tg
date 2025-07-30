@@ -1,27 +1,14 @@
 import { useEffect } from "react";
 import "./App.css";
-
-const tg = (
-  window as unknown as {
-    Telegram: {
-      WebApp: {
-        ready: () => void;
-        close: () => void;
-        initDataUnsafe: {
-          user: {
-            username: string;
-          };
-        };
-      };
-    };
-  }
-).Telegram.WebApp;
+import { useTelegram } from "./hooks/useTelegram";
 
 function App() {
+  const tg = useTelegram();
   useEffect(() => {
     tg.ready();
   }, []);
   const onClose = () => {
+    tg.sendData("hui");
     tg.close();
   };
   return (
