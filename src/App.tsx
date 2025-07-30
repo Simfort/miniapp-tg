@@ -8,7 +8,7 @@ function App() {
     tg.ready();
   }, []);
   const onClose = () => {
-    tg.sendData("hui");
+    tg.sendData("ggggggmoneee");
     tg.close();
   };
   return (
